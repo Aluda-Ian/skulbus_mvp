@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - SkulBus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="container-fluid">
+        <div class="row min-vh-100">
+            <!-- Left Side - Branding -->
+            <div class="col-lg-5 d-none d-lg-flex auth-brand-side">
+                <div class="d-flex flex-column justify-content-center align-items-center text-white">
+                    <div class="brand-logo mb-4">
+                        <i class="fas fa-bus fa-5x"></i>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-3">Join SkulBus</h1>
+                    <p class="lead text-center mb-4">Start your journey with safe school transport</p>
+                    <div class="role-benefits">
+                        <div class="benefit-item mb-3">
+                            <i class="fas fa-users text-info me-3"></i>
+                            <span><strong>Parents:</strong> Book & track safely</span>
+                        </div>
+                        <div class="benefit-item mb-3">
+                            <i class="fas fa-bus text-success me-3"></i>
+                            <span><strong>Saccos:</strong> Manage fleet efficiently</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-school text-warning me-3"></i>
+                            <span><strong>Schools:</strong> Monitor & ensure safety</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side - Registration Form -->
+            <div class="col-lg-7 d-flex align-items-center">
+                <div class="auth-form-container">
+                    <div class="text-center mb-4">
+                        <div class="d-lg-none mb-3">
+                            <i class="fas fa-bus fa-3x text-primary"></i>
+                            <h2 class="fw-bold text-primary">SkulBus</h2>
+                        </div>
+                        <h3 class="fw-bold">Create Account</h3>
+                        <p class="text-muted">Join the SkulBus community</p>
+                    </div>
+                    
+                    <form id="registerForm" class="auth-form">
+                        <!-- Role Selection -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">I am registering as:</label>
+                            <div class="role-selection">
+                                <div class="row g-2">
+                                    <div class="col-4">
+                                        <input type="radio" class="btn-check" name="role" id="role-parent" value="parent" required>
+                                        <label class="btn btn-outline-primary w-100" for="role-parent">
+                                            <i class="fas fa-user d-block mb-1"></i>
+                                            <small>Parent</small>
+                                        </label>
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="radio" class="btn-check" name="role" id="role-sacco" value="sacco" required>
+                                        <label class="btn btn-outline-success w-100" for="role-sacco">
+                                            <i class="fas fa-bus d-block mb-1"></i>
+                                            <small>Sacco</small>
+                                        </label>
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="radio" class="btn-check" name="role" id="role-admin" value="admin" required>
+                                        <label class="btn btn-outline-warning w-100" for="role-admin">
+                                            <i class="fas fa-school d-block mb-1"></i>
+                                            <small>School</small>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Personal Information -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="fullName" name="fullName" 
+                                               placeholder="Enter full name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                        <input type="email" class="form-control" id="email" name="email" 
+                                               placeholder="Enter email" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-phone"></i>
+                                        </span>
+                                        <input type="tel" class="form-control" id="phone" name="phone" 
+                                               placeholder="0712345678" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3" id="schoolField" style="display: none;">
+                                    <label for="school" class="form-label">School</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-school"></i>
+                                        </span>
+                                        <select class="form-select" id="school" name="school">
+                                            <option value="">Select School</option>
+                                            <option value="nairobi-high">Nairobi High School</option>
+                                            <option value="mombasa-secondary">Mombasa Secondary School</option>
+                                            <option value="kisumu-academy">Kisumu Academy</option>
+                                            <option value="nakuru-girls">Nakuru Girls High School</option>
+                                            <option value="eldoret-boys">Eldoret Boys High School</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3" id="regionField" style="display: none;">
+                                    <label for="region" class="form-label">Operating Region</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        <select class="form-select" id="region" name="region">
+                                            <option value="">Select Region</option>
+                                            <option value="nairobi">Nairobi</option>
+                                            <option value="mombasa">Mombasa</option>
+                                            <option value="kisumu">Kisumu</option>
+                                            <option value="nakuru">Nakuru</option>
+                                            <option value="eldoret">Eldoret</option>
+                                            <option value="thika">Thika</option>
+                                            <option value="machakos">Machakos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Password Fields -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                        <input type="password" class="form-control" id="password" name="password" 
+                                               placeholder="Create password" required>
+                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="password-strength mt-1">
+                                        <div class="progress" style="height: 3px;">
+                                            <div class="progress-bar" id="passwordStrength" style="width: 0%"></div>
+                                        </div>
+                                        <small class="text-muted" id="passwordHelp">Password strength</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" 
+                                               placeholder="Confirm password" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Terms and Conditions -->
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">
+                                    I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> 
+                                    and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100 mb-3">
+                            <i class="fas fa-user-plus me-2"></i>Create Account
+                        </button>
+                        
+                        <div class="text-center">
+                            <p class="mb-0">Already have an account? 
+                                <a href="login.html" class="text-decoration-none fw-bold">Sign in here</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>

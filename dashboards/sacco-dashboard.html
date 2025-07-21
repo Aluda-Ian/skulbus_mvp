@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacco Dashboard - SkulBus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <i class="fas fa-bus me-2"></i>SkulBus
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="sacco-dashboard.html">
+                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fleet-management.html">
+                            <i class="fas fa-bus me-1"></i>Fleet
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="drivers.html">
+                            <i class="fas fa-user-tie me-1"></i>Drivers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="trips.html">
+                            <i class="fas fa-route me-1"></i>Trips
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookings.html">
+                            <i class="fas fa-list me-1"></i>Bookings
+                        </a>
+                    </li>
+                </ul>
+                
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger">2</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end notification-dropdown">
+                            <li class="dropdown-header">Notifications</li>
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fas fa-user-plus text-success me-2"></i>
+                                New booking for Nairobi route
+                            </a></li>
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fas fa-check-circle text-info me-2"></i>
+                                Vehicle KCA 123A approved
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-center" href="#">View All</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i>Thika Road Sacco
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-building me-2"></i>Company Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../login.html"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-4">
+        <!-- Welcome Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="welcome-card bg-success">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h2 class="fw-bold mb-2 text-white">Welcome, Thika Road Sacco! 🚌</h2>
+                            <p class="text-white-50 mb-0">Manage your fleet, trips, and bookings efficiently</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addTripModal">
+                                <i class="fas fa-plus me-2"></i>Add New Trip
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="row mb-4">
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stats-card bg-primary">
+                    <div class="stats-icon">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>8</h3>
+                        <p>Total Vehicles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stats-card bg-success">
+                    <div class="stats-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>12</h3>
+                        <p>Active Drivers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stats-card bg-warning">
+                    <div class="stats-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>15</h3>
+                        <p>Active Trips</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stats-card bg-info">
+                    <div class="stats-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>45</h3>
+                        <p>Total Bookings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Fleet Status -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-bus me-2"></i>Fleet Status</h5>
+                        <a href="fleet-management.html" class="btn btn-sm btn-outline-primary">Manage Fleet</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="fleet-list">
+                            <div class="fleet-item">
+                                <div class="vehicle-info">
+                                    <div class="vehicle-plate">KCA 123A</div>
+                                    <small class="text-muted">Toyota Hiace • 14 seats</small>
+                                </div>
+                                <div class="vehicle-status">
+                                    <span class="badge bg-success">Active</span>
+                                    <div class="status-indicator active"></div>
+                                </div>
+                            </div>
+                            <div class="fleet-item">
+                                <div class="vehicle-info">
+                                    <div class="vehicle-plate">KCB 456B</div>
+                                    <small class="text-muted">Nissan Matatu • 14 seats</small>
+                                </div>
+                                <div class="vehicle-status">
+                                    <span class="badge bg-warning">In Transit</span>
+                                    <div class="status-indicator warning"></div>
+                                </div>
+                            </div>
+                            <div class="fleet-item">
+                                <div class="vehicle-info">
+                                    <div class="vehicle-plate">KCC 789C</div>
+                                    <small class="text-muted">Toyota Hiace • 14 seats</small>
+                                </div>
+                                <div class="vehicle-status">
+                                    <span class="badge bg-secondary">Maintenance</span>
+                                    <div class="status-indicator secondary"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addVehicleModal">
+                                <i class="fas fa-plus me-1"></i>Add Vehicle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Trips -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-route me-2"></i>Recent Trips</h5>
+                        <a href="trips.html" class="btn btn-sm btn-outline-primary">View All</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="trip-list">
+                            <div class="trip-item">
+                                <div class="trip-info">
+                                    <h6 class="mb-1">Nairobi → Thika</h6>
+                                    <small class="text-muted">Jan 15, 2024 • 6:00 AM</small>
+                                </div>
+                                <div class="trip-status">
+                                    <span class="badge bg-success">Completed</span>
+                                    <div class="trip-bookings">12/14 seats</div>
+                                </div>
+                            </div>
+                            <div class="trip-item">
+                                <div class="trip-info">
+                                    <h6 class="mb-1">Thika → Nairobi</h6>
+                                    <small class="text-muted">Jan 15, 2024 • 4:00 PM</small>
+                                </div>
+                                <div class="trip-status">
+                                    <span class="badge bg-warning">In Progress</span>
+                                    <div class="trip-bookings">10/14 seats</div>
+                                </div>
+                            </div>
+                            <div class="trip-item">
+                                <div class="trip-info">
+                                    <h6 class="mb-1">Nairobi → Machakos</h6>
+                                    <small class="text-muted">Jan 16, 2024 • 7:00 AM</small>
+                                </div>
+                                <div class="trip-status">
+                                    <span class="badge bg-primary">Scheduled</span>
+                                    <div class="trip-bookings">8/14 seats</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bookings Overview -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-list me-2"></i>Recent Bookings</h5>
+                        <a href="bookings.html" class="btn btn-sm btn-primary">View All Bookings</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Student</th>
+                                        <th>Route</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#BK001</td>
+                                        <td>John Doe Jr.</td>
+                                        <td>Nairobi → Thika</td>
+                                        <td>Jan 20, 2024</td>
+                                        <td>KES 500</td>
+                                        <td><span class="badge bg-success">Confirmed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#BK002</td>
+                                        <td>Jane Smith</td>
+                                        <td>Nairobi → Machakos</td>
+                                        <td>Jan 21, 2024</td>
+                                        <td>KES 400</td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#BK003</td>
+                                        <td>Mike Johnson</td>
+                                        <td>Thika → Nairobi</td>
+                                        <td>Jan 22, 2024</td>
+                                        <td>KES 500</td>
+                                        <td><span class="badge bg-info">Scheduled</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Trip Modal -->
+    <div class="modal fade" id="addTripModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Trip</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Route</label>
+                                    <select class="form-select">
+                                        <option>Nairobi → Thika</option>
+                                        <option>Thika → Nairobi</option>
+                                        <option>Nairobi → Machakos</option>
+                                        <option>Machakos → Nairobi</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Vehicle</label>
+                                    <select class="form-select">
+                                        <option>KCA 123A - Toyota Hiace</option>
+                                        <option>KCB 456B - Nissan Matatu</option>
+                                        <option>KCC 789C - Toyota Hiace</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Driver</label>
+                                    <select class="form-select">
+                                        <option>John Kamau</option>
+                                        <option>Peter Mwangi</option>
+                                        <option>David Kiprotich</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Departure Date</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Departure Time</label>
+                                    <input type="time" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Price per Seat (KES)</label>
+                                    <input type="number" class="form-control" placeholder="500">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success">Create Trip</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Vehicle Modal -->
+    <div class="modal fade" id="addVehicleModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Vehicle</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Plate Number</label>
+                            <input type="text" class="form-control" placeholder="KCA 123A">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Vehicle Model</label>
+                            <input type="text" class="form-control" placeholder="Toyota Hiace">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Seating Capacity</label>
+                            <input type="number" class="form-control" placeholder="14">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Insurance Document</label>
+                            <input type="file" class="form-control" accept=".pdf,.jpg,.png">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">NTSA Certificate</label>
+                            <input type="file" class="form-control" accept=".pdf,.jpg,.png">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success">Add Vehicle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
